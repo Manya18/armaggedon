@@ -5,7 +5,19 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home(){
+
+  const current = new Date();
+  const dateStart = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+  const dateEnd = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()+1}`;
+  const apiToken = `w72K7LgVIHRXzd4b8VfGskoRL1FjgdQPPlhA5vGg`;
+  console.log(dateStart, dateEnd)
+  const apiURL= `https://api.nasa.gov/neo/rest/v1/feed?start_date=${dateStart}&end_date=${dateEnd}&api_key=${apiToken}`;
+  
+  fetch(apiURL)
+      .then((response) => response.json())
+      .then((data) => console.log('This is your data', data));
+
   return (
     <>
       <Head>
