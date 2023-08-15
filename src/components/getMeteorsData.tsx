@@ -5,8 +5,17 @@ import Image from 'next/image'
 
 const GetMeteorsData = () => {
 
-    const [meteors, setMeteors] = useState([]);
+    const [meteors, setMeteors] = useState([{
+        "id":0,
+        "date":'',
+        'units':[],
+        "name":'',
+        "is_potentially_hazardous_asteroid": false,
+        "absolute_magnitude_h": 0
+    }]);
     const [unitsM, setUnitsM] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const[fetching, setFetching] = useState(true);
 
     const current = new Date();
     const dateStart = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
@@ -19,34 +28,39 @@ const GetMeteorsData = () => {
         fetch(apiURL)
         .then((response) => response.json())
         .then((data) => {
-            for(const [key, value] of Object.entries(data.near_earth_objects))
-            {
-            console.log('This is your data', key, value) 
-            if(value) {
-                for(const value1 of Object.values(value))
-                {
-                meteors.push(value1)
-                setMeteors(meteors)
+            let startMeteors=[];
+            for(const [key, value] of Object.entries(data.near_earth_objects)){
+                console.log('This is your data', key, value) 
+                if(value) {
+                    for(const value1 of Object.values(value)){
+
+                        // редачим имя
+                        let name = ''
+                        if(value1.name.substr(0,1)=="(") {
+                            name = value1.name.substring(1);
+                            if(value1.name.substr(value1.name.length-1)==")") name = name.substring(0, name.length-1);
+                        }
+                        else name = value1.name;
+                        let meteor = {
+                            "id":value1.id,
+                            "date":new Date(value1.close_approach_data[0].close_approach_date).toLocaleDateString(),
+                            'units':[Math.round(value1.close_approach_data[0].miss_distance.kilometers).toLocaleString('ru'), Math.round(value1.close_approach_data[0].miss_distance.lunar)],
+                            "name":name,
+                            "is_potentially_hazardous_asteroid": value1.is_potentially_hazardous_asteroid,
+                            "absolute_magnitude_h": Math.round(value1.absolute_magnitude_h)                
+                        }
+                    startMeteors.push(meteor)
+                    } 
                 }
-            }
+                setMeteors(startMeteors)
             } console.log("meteors", meteors)
         });
     }
 
     useEffect(() => {
-        getData()
-    }, [])
-
-    useEffect(() => {
-    document.addEventListener('scroll', scrollHandler);
-    return function () {
-        document.removeEventListener('scroll', scrollHandler)
-    }
-    }, [])
-
-    const scrollHandler = (e:any) => {
-        console.log('scroll');
-    }
+        if(fetching)
+            getData()
+    }, [fetching])
 
     return (
         <div style={{color:'white'}}>
@@ -56,7 +70,7 @@ const GetMeteorsData = () => {
                 <div onClick={() => setUnitsM(true)}>| в лунных орбитах</div>
             </div>
             {meteors.map(meteor => 
-                <Meteor meteor={meteor} unitsM={unitsM} />
+                <Meteor meteor={meteor} unitsM={unitsM}/>
             )}
         </div>
     )
