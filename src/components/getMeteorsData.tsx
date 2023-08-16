@@ -13,16 +13,21 @@ const GetMeteorsData = () => {
         "is_potentially_hazardous_asteroid": false,
         "absolute_magnitude_h": 0
     }]);
+    const [current, setCurrent] = useState(new Date())
     const [unitsM, setUnitsM] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentDate, setCurrentDate] = useState(formatDate(current))
     const[fetching, setFetching] = useState(true);
+    console.log('as', current, currentDate);
 
-    const current = new Date();
-    const dateStart = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
-    const dateEnd = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()+1}`;
     const apiToken = `w72K7LgVIHRXzd4b8VfGskoRL1FjgdQPPlhA5vGg`;
-    console.log(dateStart, dateEnd)
-    const apiURL= `https://api.nasa.gov/neo/rest/v1/feed?start_date=${dateStart}&end_date=${dateEnd}&api_key=${apiToken}`;
+    console.log(currentDate)
+    const apiURL= `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate}&end_date=${currentDate}&api_key=${apiToken}`;
+
+    function formatDate(curDate) {
+        console.log('curDate',curDate)
+        console.log('lalal', `${curDate.getFullYear()}-${curDate.getMonth()+1}-${curDate.getDate()}`)
+        return `${curDate.getFullYear()}-${curDate.getMonth()+1}-${curDate.getDate()}`;
+    }
 
     async function getData(){
         fetch(apiURL)
@@ -52,15 +57,30 @@ const GetMeteorsData = () => {
                     startMeteors.push(meteor)
                     } 
                 }
-                setMeteors(startMeteors)
+                setMeteors([...meteors, ...startMeteors])
+                setCurrent(new Date(current.setDate(current.getDate()+1)))
+                setCurrentDate(formatDate(current))
             } console.log("meteors", meteors)
-        });
+        })
+        .finally(() => setFetching(false))
     }
 
     useEffect(() => {
         if(fetching)
             getData()
     }, [fetching])
+
+    useEffect(() => {
+        document.addEventListener('scroll', scrollHandler)
+        return function () {
+            document.removeEventListener('scroll', scrollHandler)
+        }
+    }, [])
+    
+      const scrollHandler = (e) => {
+        if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop+window.innerHeight)<100)
+            setFetching(true)
+    }
 
     return (
         <div style={{color:'white'}}>
