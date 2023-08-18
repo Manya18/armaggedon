@@ -1,7 +1,9 @@
+import styles from './Header.module.css'
+
 const Header = () => {
     return (
-        <div style={{color:"white", paddingBottom:'6vh', padding:'2vh'}}>
-            <div>ARMAGEDDON 2023</div>
+        <div className={styles.body}>
+            <h1 className={styles.name}>ARMAGEDDON 2023</h1>
             <div>OOO "Команда им. Б. Уиллиса".</div>
             <div>Взрываем астероиды с 1998 года</div>
         </div>

@@ -1,0 +1,51 @@
+.flex {
+    display: flex;
+}
+
+.body {
+    margin-top: 3vh;
+
+}
+
+.date {
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    max-width:30vw;
+    min-width:20vw;
+
+}
+
+.column {
+    text-align: left;
+    min-width: 10vw;
+    max-width: 15vw;
+}
+
+.type {
+    margin-left: 1vw;
+    color: yellow;
+}
+
+.name {
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.button {
+    width: 100px;
+    height: 30px;
+    background-color: #e05a00;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.button:hover {
+    cursor: pointer;
+    background-color: #ff9147;
+}

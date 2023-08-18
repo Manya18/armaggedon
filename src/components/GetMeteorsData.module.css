@@ -1,0 +1,24 @@
+.title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    max-width: 30vw;
+    text-align: left;
+}
+
+.param1, .param2 {
+    font-size: medium;
+    background-color: black;
+    border:  none;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.param1:focus, .param2:focus {
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.flex {
+    display: flex;
+}

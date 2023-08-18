@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Meteor from "./Meteor";
 import {Button, Skeleton} from "@nextui-org/react";
 import Image from 'next/image'
+import styles from './GetMeteorsData.module.css'
 
 const GetMeteorsData = () => {
 
@@ -83,11 +84,11 @@ const GetMeteorsData = () => {
     }
 
     return (
-        <div style={{color:'white'}}>
-            <div>Ближайшие подлеты астероидов</div>
-            <div style={{display:'flex'}}>
-                <div onClick={() => setUnitsM(false)}> в километрах </div>
-                <div onClick={() => setUnitsM(true)}>| в лунных орбитах</div>
+        <div>
+            <h1 className={styles.title}>Ближайшие подлеты астероидов</h1>
+            <div className={styles.flex}>
+                <button className={styles.param1} onClick={() => setUnitsM(false)}> в километрах </button>
+                <button className={styles.param2} onClick={() => setUnitsM(true)}>| в лунных орбитах</button>
             </div>
             {meteors.map(meteor => 
                 <Meteor meteor={meteor} unitsM={unitsM}/>
