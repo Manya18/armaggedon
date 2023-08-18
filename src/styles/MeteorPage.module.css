@@ -1,0 +1,54 @@
+.body {
+    background-color: black;
+}
+
+
+.flex {
+    display: flex;
+    padding: 20px;
+}
+    
+.approach {
+    font-size: large;
+    margin: 5px;
+    display: flex;
+    text-align: center;
+}
+ 
+@keyframes moving {
+    100% {transform: rotate(-360deg);}
+}
+
+.image {
+    margin-right: 30px;
+    animation: moving 20s infinite linear;
+}
+
+.head {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.data {
+    text-align: center;
+}
+  
+.li {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid green;
+}
+
+@media screen and (max-width: 480px) {
+    .image {
+      height: 700px;
+      left: -400px
+    }
+    .body {
+      flex-direction: column;
+    }
+  
+  }

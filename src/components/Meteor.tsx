@@ -1,12 +1,15 @@
 import { Button } from '@nextui-org/react';
 import Image from 'next/image'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Meteor.module.css'
+import Link from 'next/link';
 
 const Meteor = (props) => {
 
+    const [clickBtn, setClickBtn] = useState(false);
+
     return (
-        < div className={styles.body} key={props.meteor.id}>
+        <>{props.meteor.id ? < div className={styles.body} key={props.meteor.id}>
             <h1 className={styles.date} >{props.meteor.date}</h1>
             <div className={styles.data}>
                 <div className={styles.column}>                    
@@ -29,16 +32,17 @@ const Meteor = (props) => {
                     height={props.meteor.absolute_magnitude_h*2}
                 />
                 <div className={styles.column}>
-                    <h3 className={styles.name}>{props.meteor.name}</h3>
+                    <Link href={{pathname:`/SingleMeteor/${props.meteor.id}`, query:props.id}}><h3 className={styles.name}>{props.meteor.name}</h3></Link>
                     <h4 className={styles.width}>Ø {props.meteor.absolute_magnitude_h} м</h4> 
                 </div>
                
             </div> 
             <div className={styles.flex}>
-                <Button className={styles.button}>Заказать</Button>
+                {clickBtn?<Button className={styles.buttonOn}>В КОРЗИНЕ</Button>:<Button className={styles.buttonOff} onClick={() => setClickBtn(true)}>ЗАКАЗАТЬ</Button>}
                 {props.meteor.is_potentially_hazardous_asteroid &&<div className={styles.type}>⚠ Опасен</div>}
                 </div>
-        </div>
+        </div>:<></>}
+        </>
     )
 }
 

@@ -17,7 +17,8 @@
 
 @media screen and (max-width: 480px) {
   .image {
-    left: -85vw
+    height: 700px;
+    left: -400px
   }
   .body {
     flex-direction: column;

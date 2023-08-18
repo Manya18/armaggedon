@@ -62,6 +62,7 @@ const GetMeteorsData = () => {
                 setCurrent(new Date(current.setDate(current.getDate()+1)))
                 setCurrentDate(formatDate(current))
             } console.log("meteors", meteors)
+            
         })
         .finally(() => setFetching(false))
     }

@@ -29,6 +29,8 @@
 
 .type {
     margin-left: 1vw;
+    margin-top: auto;
+    margin-bottom: auto;
     color: yellow;
 }
 
@@ -37,17 +39,27 @@
     margin-bottom: 10px;
 }
 
-.button {
+.buttonOff, .buttonOn {
     width: 100px;
     height: 30px;
-    background-color: #e05a00;
+    background-color: #471d00;
     border: none;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
-.button:hover {
+
+.buttonOff {
+    color: #e05a00
+}
+.buttonOff:hover {
     cursor: pointer;
-    background-color: #ff9147;
+    background-color: #e05a00;
+    color: white
+}
+
+.buttonOn {
+    color: gray
 }
 
 @media screen and (max-width: 480px) {
@@ -73,7 +85,7 @@
     .button {
         width: 70px;
         height: 25px;
-        font-size: 15px;
+        font-size: 12px;
     }
     .meteor {
         margin-right: 10px;
