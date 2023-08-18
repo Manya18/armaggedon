@@ -49,3 +49,33 @@
     cursor: pointer;
     background-color: #ff9147;
 }
+
+@media screen and (max-width: 480px) {
+    .date {
+        font-size:x-large
+    }
+    .data {
+        display: flex;
+        justify-content: space-between;
+        max-width:40vw;
+        min-width:30vw;
+    }
+    .units, .width {
+        font-size:smaller
+    }
+    .column {
+        min-width: 25vw;
+        max-width: 30vw;
+    }
+    .name {
+        font-size:small;
+    }
+    .button {
+        width: 70px;
+        height: 25px;
+        font-size: 15px;
+    }
+    .meteor {
+        margin-right: 10px;
+    }
+  }

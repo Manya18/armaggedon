@@ -1,13 +1,26 @@
 .body {
-  display:'flex';
+  background-color: black;
+  display: flex;
 }
 
-.block {
-  display: block;
+.meteors {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.meteoirs {
-  text-align:'center';
-  margin-left: 'auto';
-  margin-right: 'auto';
+.image {
+  position: fixed;
+  height: 80vh;
+  left: -10vw
+}
+
+@media screen and (max-width: 480px) {
+  .image {
+    left: -85vw
+  }
+  .body {
+    flex-direction: column;
+  }
+
 }

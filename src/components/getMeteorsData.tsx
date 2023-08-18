@@ -87,7 +87,7 @@ const GetMeteorsData = () => {
         <div>
             <h1 className={styles.title}>Ближайшие подлеты астероидов</h1>
             <div className={styles.flex}>
-                <button className={styles.param1} onClick={() => setUnitsM(false)}> в километрах </button>
+                <button className={styles.param1} onClick={() => setUnitsM(false)} autoFocus> в километрах </button>
                 <button className={styles.param2} onClick={() => setUnitsM(true)}>| в лунных орбитах</button>
             </div>
             {meteors.map(meteor => 

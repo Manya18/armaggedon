@@ -11,12 +11,12 @@ const Meteor = (props) => {
             <div className={styles.data}>
                 <div className={styles.column}>                    
                     {props.unitsM===false? 
-                        <h4 className="units">{props.meteor.units[0]} km</h4>: 
-                        <h4 className="units">{props.meteor.units[1]} лунных орбит</h4>}
+                        <h4 className={styles.units}>{props.meteor.units[0]} km</h4>: 
+                        <h4 className={styles.units}>{props.meteor.units[1]} лунных орбит</h4>}
                     <Image
                         src="/Arrow.png"
                         alt="Arrow"
-                        className={"meteor"}
+                        className={styles.arrow}
                         width={90}
                         height={5}
                     />
@@ -24,13 +24,13 @@ const Meteor = (props) => {
                 <Image
                     src="/meteor.png"
                     alt="Meteorite"
-                    className={"meteor"}
+                    className={styles.meteor}
                     width={props.meteor.absolute_magnitude_h*2}
                     height={props.meteor.absolute_magnitude_h*2}
                 />
                 <div className={styles.column}>
                     <h3 className={styles.name}>{props.meteor.name}</h3>
-                    <h4 className="width">Ø {props.meteor.absolute_magnitude_h} м</h4> 
+                    <h4 className={styles.width}>Ø {props.meteor.absolute_magnitude_h} м</h4> 
                 </div>
                
             </div> 
