@@ -1,0 +1,30 @@
+.body {
+    padding: 30px;
+    background-color:#242424;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: #e05a00;
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.h2 {
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 480px) {
+    .body{
+        width: 100vw;
+        padding: 10px;
+        border-radius: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+  }

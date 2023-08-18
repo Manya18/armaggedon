@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import GetMeteorsData from '@/components/getMeteorsData'
 import Header from '@/components/Header'
+import Basket from '@/components/Basket'
 
 export default function Home(){
 
@@ -20,10 +21,13 @@ export default function Home(){
       </Head>
       <div>
         <Header/>
-        <img src='/earth.png' className={styles.image}/>
+        
       </div>
       <div className={styles.meteors}>
         <GetMeteorsData/>
+      </div>
+      <div className={styles.basket}>
+        <Basket/>
       </div>
     </div>
   )

@@ -2,7 +2,6 @@
     background-color: black;
 }
 
-
 .flex {
     display: flex;
     padding: 20px;
@@ -20,8 +19,9 @@
 }
 
 .image {
-    margin-right: 30px;
+    margin-right: 20px;
     animation: moving 20s infinite linear;
+    margin-left: 60px;
 }
 
 .head {
@@ -39,7 +39,9 @@
     width: fit-content;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 2px solid green;
+    padding: 10px;
+    background-color:#242424;
+    border-radius: 20px;
 }
 
 @media screen and (max-width: 480px) {

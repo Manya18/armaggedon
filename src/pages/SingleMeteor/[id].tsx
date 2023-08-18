@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import styles from '@/styles/MeteorPage.module.css'
+import Header from '@/components/Header';
 
 const SingleMeteor = () => {
     const router = useRouter()
@@ -55,16 +56,19 @@ const SingleMeteor = () => {
     return (
         <div className={styles.body}>
             <div className={styles.flex}>
-                <Image
-                    src="/meteor.png"
-                    alt="Meteorite"
-                    width={meteorData.diameter*5}
-                    height={meteorData.diameter*5}
-                    className={styles.image}
-                />
-                <div className={styles.head}>
-                    <h1>Метеорит {meteorData.name}</h1>
-                    <h2>Ø {meteorData.diameter}</h2>
+                <Header/>
+                <div className={styles.flex}>
+                    <Image
+                        src="/meteor.png"
+                        alt="Meteorite"
+                        width={150}
+                        height={150}
+                        className={styles.image}
+                    />
+                    <div className={styles.head}>
+                        <h1>Метеорит {meteorData.name}</h1>
+                        <h2>Ø {meteorData.diameter}</h2>
+                    </div>
                 </div>
             </div>
             <div className={styles.data}>

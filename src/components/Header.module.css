@@ -3,6 +3,19 @@
     margin: 2vh;
 }
 
+.image {
+    position: fixed;
+    height: 80vh;
+    left: -10vw;
+  }
+
 .name {
     color: #e05a00;
+}
+
+@media screen and (max-width: 480px) {
+    .image {
+        height: 700px;
+        left: -400px;
+    }
 }
