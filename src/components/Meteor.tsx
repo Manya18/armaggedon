@@ -5,8 +5,11 @@ import styles from './Meteor.module.css'
 import Link from 'next/link';
 
 const Meteor = (props) => {
-
     const [clickBtn, setClickBtn] = useState(false);
+    let size = 0;
+    if(props.meteor.size<50) size = 50;
+    else if(props.meteor.size<100) size = 70;
+    else size = 90
 
     return (
         <>{props.meteor.id ? < div className={styles.body} key={props.meteor.id}>
@@ -28,17 +31,17 @@ const Meteor = (props) => {
                     src="/meteor.png"
                     alt="Meteorite"
                     className={styles.meteor}
-                    width={props.meteor.absolute_magnitude_h*2}
-                    height={props.meteor.absolute_magnitude_h*2}
+                    width={size}
+                    height={size}
                 />
                 <div className={styles.column}>
                     <Link href={{pathname:`/SingleMeteor/${props.meteor.id}`, query:props.id}}><h3 className={styles.name}>{props.meteor.name}</h3></Link>
-                    <h4 className={styles.width}>Ø {props.meteor.absolute_magnitude_h} м</h4> 
+                    <h4 className={styles.width}>Ø {props.meteor.size} м</h4> 
                 </div>
                
             </div> 
             <div className={styles.flex}>
-                {clickBtn?<Button className={styles.buttonOn}>В КОРЗИНЕ</Button>:<Button className={styles.buttonOff} onClick={() => setClickBtn(true)}>ЗАКАЗАТЬ</Button>}
+                {clickBtn?<Button className={styles.buttonOn}>В КОРЗИНЕ</Button>:<Button className={styles.buttonOff} onClick={() => {setClickBtn(true)}}>ЗАКАЗАТЬ</Button>}
                 {props.meteor.is_potentially_hazardous_asteroid &&<div className={styles.type}>⚠ Опасен</div>}
                 </div>
         </div>:<></>}

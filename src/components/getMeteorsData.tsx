@@ -12,21 +12,16 @@ const GetMeteorsData = () => {
         'units':[],
         "name":'',
         "is_potentially_hazardous_asteroid": false,
-        "absolute_magnitude_h": 0
+        "size": 0
     }]);
     const [current, setCurrent] = useState(new Date())
     const [unitsM, setUnitsM] = useState(false);
     const [currentDate, setCurrentDate] = useState(formatDate(current))
-    const[fetching, setFetching] = useState(true);
-    console.log('as', current, currentDate);
-
+    const [fetching, setFetching] = useState(true);
     const apiToken = `w72K7LgVIHRXzd4b8VfGskoRL1FjgdQPPlhA5vGg`;
-    console.log(currentDate)
     const apiURL= `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate}&end_date=${currentDate}&api_key=${apiToken}`;
 
     function formatDate(curDate) {
-        console.log('curDate',curDate)
-        console.log('lalal', `${curDate.getFullYear()}-${curDate.getMonth()+1}-${curDate.getDate()}`)
         return `${curDate.getFullYear()}-${curDate.getMonth()+1}-${curDate.getDate()}`;
     }
 
@@ -53,9 +48,10 @@ const GetMeteorsData = () => {
                             'units':[Math.round(value1.close_approach_data[0].miss_distance.kilometers).toLocaleString('ru'), Math.round(value1.close_approach_data[0].miss_distance.lunar)],
                             "name":name,
                             "is_potentially_hazardous_asteroid": value1.is_potentially_hazardous_asteroid,
-                            "absolute_magnitude_h": Math.round(value1.absolute_magnitude_h)                
+                            "size": Math.round((value1.estimated_diameter.meters.estimated_diameter_max - value1.estimated_diameter.meters.estimated_diameter_min)/2)                
                         }
                     startMeteors.push(meteor)
+                    console.log(meteor.size)
                     } 
                 }
                 setMeteors([...meteors, ...startMeteors])
