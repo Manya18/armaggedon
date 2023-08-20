@@ -9,7 +9,9 @@ import Basket from '@/components/Basket'
 
 export default function Home(){
 
-
+  const handleData = (data: any) => {
+    console.log(data); // выводим переданные данные в консоль
+  };
 
   return (
     <div className={styles.body}>
@@ -24,7 +26,7 @@ export default function Home(){
         
       </div>
       <div className={styles.meteors}>
-        <GetMeteorsData/>
+        <GetMeteorsData onData={handleData}/>
       </div>
       <div className={styles.basket}>
         <Basket/>

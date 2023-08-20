@@ -4,7 +4,7 @@ import {Button, Skeleton} from "@nextui-org/react";
 import Image from 'next/image'
 import styles from './GetMeteorsData.module.css'
 
-const GetMeteorsData = () => {
+const GetMeteorsData = ({onData}) => {
 
     const [meteors, setMeteors] = useState([{
         "id":0,
@@ -51,7 +51,6 @@ const GetMeteorsData = () => {
                             "size": Math.round((value1.estimated_diameter.meters.estimated_diameter_max - value1.estimated_diameter.meters.estimated_diameter_min)/2)                
                         }
                     startMeteors.push(meteor)
-                    console.log(meteor.size)
                     } 
                 }
                 setMeteors([...meteors, ...startMeteors])
@@ -80,8 +79,13 @@ const GetMeteorsData = () => {
             setFetching(true)
     }
 
+    const handleClick = () => {
+        onData("aaaa")
+    }
+
     return (
         <div>
+                        <button onClick={handleClick}>ddd</button>
             <h1 className={styles.title}>Ближайшие подлеты астероидов</h1>
             <div className={styles.flex}>
                 <button className={styles.param1} onClick={() => setUnitsM(false)} autoFocus> в километрах </button>
