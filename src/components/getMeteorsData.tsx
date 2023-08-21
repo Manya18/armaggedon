@@ -94,7 +94,15 @@ const GetMeteorsData = ({onData}) => {
             <div key={meteor.id} >
                 <Meteor meteor={meteor} unitsM={unitsM}/>
                 <div className={styles.flex}>
-                    <Button className={styles.buttonOff} onClick={() => { onData(meteor); setChosen([...chosen, meteor])}}>ЗАКАЗАТЬ</Button>
+                    <Button 
+                    id={String(meteor.id)} 
+                    className={styles.buttonOff} 
+                    onClick={() => { 
+                        onData(meteor); 
+                        setChosen([...chosen, meteor]); 
+                        document.getElementById(String(meteor.id)).className = styles.buttonOn;
+                        document.getElementById(String(meteor.id)).disabled = true;
+                    }}>ЗАКАЗАТЬ</Button>
                     {meteor.dangerous &&<div className={styles.type}>⚠ Опасен</div>}
                 </div>
             </div>
