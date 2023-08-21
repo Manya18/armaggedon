@@ -7,10 +7,24 @@ import GetMeteorsData from '@/components/getMeteorsData'
 import Header from '@/components/Header'
 import Basket from '@/components/Basket'
 
+interface asterodGen {
+  id: number;
+  date: string;
+  units: number[];
+  name: string;
+  dangerous: boolean;
+  size: number;
+}
+
 export default function Home(){
 
+  const [dataM, setDataM] = useState();
+  const [meteors, setMeteors] = useState<asterodGen[]>([]);
+
   const handleData = (data: any) => {
-    console.log(data); // выводим переданные данные в консоль
+    setDataM(data)
+    meteors.push(data)
+    setMeteors(meteors)
   };
 
   return (
@@ -29,7 +43,7 @@ export default function Home(){
         <GetMeteorsData onData={handleData}/>
       </div>
       <div className={styles.basket}>
-        <Basket/>
+        <Basket data ={meteors}/>
       </div>
     </div>
   )

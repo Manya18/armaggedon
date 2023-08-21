@@ -27,39 +27,9 @@
     max-width: 15vw;
 }
 
-.type {
-    margin-left: 1vw;
-    margin-top: auto;
-    margin-bottom: auto;
-    color: yellow;
-}
-
 .name {
     text-decoration: underline;
     margin-bottom: 10px;
-}
-
-.buttonOff, .buttonOn {
-    width: 100px;
-    height: 30px;
-    background-color: #471d00;
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.buttonOff {
-    color: #e05a00
-}
-.buttonOff:hover {
-    cursor: pointer;
-    background-color: #e05a00;
-    color: white
-}
-
-.buttonOn {
-    color: gray
 }
 
 @media screen and (max-width: 480px) {
@@ -81,11 +51,6 @@
     }
     .name {
         font-size:small;
-    }
-    .button {
-        width: 70px;
-        height: 25px;
-        font-size: 12px;
     }
     .meteor {
         margin-right: 10px;

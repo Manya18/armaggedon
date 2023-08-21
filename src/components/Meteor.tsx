@@ -1,11 +1,10 @@
 import { Button } from '@nextui-org/react';
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
-import styles from './Meteor.module.css'
+import styles from '../styles/Meteor.module.css'
 import Link from 'next/link';
 
 const Meteor = (props) => {
-    const [clickBtn, setClickBtn] = useState(false);
     let size = 0;
     if(props.meteor.size<50) size = 50;
     else if(props.meteor.size<100) size = 70;
@@ -40,10 +39,6 @@ const Meteor = (props) => {
                 </div>
                
             </div> 
-            <div className={styles.flex}>
-                {clickBtn?<Button className={styles.buttonOn}>В КОРЗИНЕ</Button>:<Button className={styles.buttonOff} onClick={() => {setClickBtn(true)}}>ЗАКАЗАТЬ</Button>}
-                {props.meteor.is_potentially_hazardous_asteroid &&<div className={styles.type}>⚠ Опасен</div>}
-                </div>
         </div>:<></>}
         </>
     )
