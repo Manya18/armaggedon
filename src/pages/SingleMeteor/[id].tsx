@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import styles from '@/styles/MeteorPage.module.css'
 import Header from '@/components/Header';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react';
 
 const SingleMeteor = () => {
     const router = useRouter()
@@ -35,13 +36,12 @@ const SingleMeteor = () => {
             let app = []
             for(let tmp of data.close_approach_data) {
                 let approach = {
-                    "date":tmp.close_approach_date_full,
+                    "date": tmp.close_approach_date_full,
                     'distance': Math.round(tmp.miss_distance.kilometers).toLocaleString('ru'),
                     'velocity': Math.round(tmp.relative_velocity.kilometers_per_hour).toLocaleString('ru'),
                     'orbita': tmp.orbiting_body,
                 }
                 app.push(approach)
-                
             }
             setApproachArray(app)
             console.log(approachArray)
@@ -56,7 +56,9 @@ const SingleMeteor = () => {
     return (
         <div className={styles.body}>
             <div className={styles.flex}>
-                <Header/>
+                <div className={styles.headerVisib}>
+                    <Header />
+                </div>
                 <div className={styles.flex}>
                     <Image
                         src="/meteor.png"
@@ -75,10 +77,30 @@ const SingleMeteor = () => {
                 <h1>Приближения метеорита:</h1>
                 <ul>{approachArray.map(app => 
                     <li className={styles.li}>
-                        <div className={styles.approach}><b>Дата максимального приближения:</b> {app.date}</div>
-                        <div className={styles.approach}><b>Расстояние до Земли:</b> {app.distance} км</div>
-                        <div className={styles.approach}><b>Скорость относительно Земли:</b> {app.velocity} км/ч</div>
-                        <div className={styles.approach}><b>По орбите вокруг</b> {app.orbita}</div>
+                        <Table hideHeader>
+                            <TableHeader>
+                                <TableColumn> </TableColumn>
+                                <TableColumn> </TableColumn>
+                            </TableHeader>
+                            <TableBody>
+                                <TableRow key="1">
+                                    <TableCell><b>Дата максимального приближения: </b></TableCell>
+                                    <TableCell>{app.date}</TableCell>
+                                </TableRow>
+                                <TableRow key="2">
+                                    <TableCell><b>Расстояние до Земли:</b></TableCell>
+                                    <TableCell>{app.distance} км</TableCell>
+                                </TableRow>
+                                <TableRow key="3">
+                                    <TableCell><b>Скорость относительно Земли:</b></TableCell>
+                                    <TableCell>{app.velocity} км/ч</TableCell>
+                                </TableRow>
+                                <TableRow key="4">
+                                    <TableCell><b>По орбите вокруг</b></TableCell>
+                                    <TableCell>{app.orbita}</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
                     </li>
                 )}</ul>
             </div>

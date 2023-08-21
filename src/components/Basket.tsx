@@ -3,16 +3,6 @@ import styles from '../styles/Basket.module.css'
 import Link from 'next/link';
 import { useState } from 'react';
 
-interface asterodGen {
-    id: number;
-    date: string;
-    units: number[];
-    name: string;
-    dangerous: boolean;
-    size: number;
-}
-
-
 const Basket = ({data}) => {
     let arr:string[]=[]
     console.log(data)

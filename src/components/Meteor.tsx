@@ -22,7 +22,7 @@ const Meteor = (props) => {
                         src="/Arrow.png"
                         alt="Arrow"
                         className={styles.arrow}
-                        width={90}
+                        width={100}
                         height={5}
                     />
                 </div>

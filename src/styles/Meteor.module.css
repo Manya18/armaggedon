@@ -32,6 +32,10 @@
     margin-bottom: 10px;
 }
 
+.meteor {
+    margin-right: 10px;
+}
+
 @media screen and (max-width: 480px) {
     .date {
         font-size:x-large
@@ -51,8 +55,5 @@
     }
     .name {
         font-size:small;
-    }
-    .meteor {
-        margin-right: 10px;
     }
   }
