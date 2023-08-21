@@ -3,15 +3,6 @@ import Meteor from "@/components/Meteor";
 import { useRouter } from "next/router";
 import styles from "../styles/BasketPage.module.css"
 
-interface asterodGen {
-    id: number;
-    date: string;
-    units: number[];
-    name: string;
-    dangerous: boolean;
-    size: number;
-}
-
 const BasketPage = () => {
     let arrQuery = [];
     const router = useRouter()

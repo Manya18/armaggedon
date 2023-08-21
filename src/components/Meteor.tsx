@@ -1,14 +1,13 @@
-import { Button } from '@nextui-org/react';
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
 import styles from '../styles/Meteor.module.css'
 import Link from 'next/link';
 
 const Meteor = (props) => {
-    let size = 0;
-    if(props.meteor.size<50) size = 50;
-    else if(props.meteor.size<100) size = 70;
-    else size = 90
+    
+    let sizeImg = 0;
+    if(props.meteor.sizeImg<50) sizeImg = 50;
+    else if(props.meteor.sizeImg<100) sizeImg = 70;
+    else sizeImg = 90
 
     return (
         <>{props.meteor.id ? < div className={styles.body} key={props.meteor.id}>
@@ -30,12 +29,12 @@ const Meteor = (props) => {
                     src="/meteor.png"
                     alt="Meteorite"
                     className={styles.meteor}
-                    width={size}
-                    height={size}
+                    width={sizeImg}
+                    height={sizeImg}
                 />
                 <div className={styles.column}>
                     <Link href={{pathname:`/SingleMeteor/${props.meteor.id}`, query:props.id}}><h3 className={styles.name}>{props.meteor.name}</h3></Link>
-                    <h4 className={styles.width}>Ø {props.meteor.size} м</h4> 
+                    <h4 className={styles.width}>Ø {props.meteor.sizeImg} м</h4> 
                 </div>
                
             </div> 

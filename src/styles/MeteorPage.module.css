@@ -1,6 +1,6 @@
 .body {
     background-color: black;
-    min-width: 120vw;
+    min-width: 90vw;
     min-height: 100vh;
 }
 
@@ -53,5 +53,8 @@
     }
     .headerVisib {
         display: none;
+    }
+    .body {
+        min-width: 120vw;
     }
   }

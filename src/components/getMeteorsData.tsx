@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Meteor from "./Meteor";
-import {Button, Skeleton} from "@nextui-org/react";
-import Image from 'next/image'
+import {Button} from "@nextui-org/react";
 import styles from '../styles/GetMeteorsData.module.css'
 
 interface asterodGen {
@@ -15,12 +14,12 @@ interface asterodGen {
 
 const GetMeteorsData = ({onData}) => {
 
-    const [meteors, setMeteors] = useState<asterodGen[]>([]);
-    const [chosen, setChosen] = useState<asterodGen[]>([]);
+    const [meteors, setMeteors] = useState<asterodGen[]>([]); //массив всех метеоров
+    const [chosen, setChosen] = useState<asterodGen[]>([]); //массив метеоров в корзине
 
-    const [current, setCurrent] = useState(new Date())
-    const [unitsM, setUnitsM] = useState(false);
-    const [currentDate, setCurrentDate] = useState(formatDate(current))
+    const [lastDate, setLastDate] = useState(new Date()) //храним последнюю подгруженную дату
+    const [unitsM, setUnitsM] = useState(false); //селектор единиц измерения
+    const [currentDate, setCurrentDate] = useState(formatDate(lastDate))
     const [fetching, setFetching] = useState(true);
     const apiToken = `w72K7LgVIHRXzd4b8VfGskoRL1FjgdQPPlhA5vGg`;
     const apiURL= `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate}&end_date=${currentDate}&api_key=${apiToken}`;
@@ -58,8 +57,8 @@ const GetMeteorsData = ({onData}) => {
                     } 
                 }
                 setMeteors([...meteors, ...startMeteors])
-                setCurrent(new Date(current.setDate(current.getDate()+1)))
-                setCurrentDate(formatDate(current))
+                setLastDate(new Date(lastDate.setDate(lastDate.getDate()+1)))
+                setCurrentDate(formatDate(lastDate))
             } console.log("meteors", meteors)
             
         })
@@ -71,6 +70,7 @@ const GetMeteorsData = ({onData}) => {
             getData()
     }, [fetching])
 
+    // для подгрузки данных при скролле
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
         return function () {
