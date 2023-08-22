@@ -1,17 +1,14 @@
 import { Button } from '@nextui-org/react';
 import styles from '../styles/Basket.module.css'
 import Link from 'next/link';
-import { useState } from 'react';
 
 const Basket = ({data}) => {
     let arr:string[]=[]
     console.log(data)
     for(let dat of data) {
-        console.log(JSON.stringify(dat))
         arr.push(JSON.stringify(dat))
     }
 
-    console.log(JSON.stringify(arr))
     return (
         <div className={styles.body}>
             <div>

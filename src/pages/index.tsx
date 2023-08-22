@@ -5,19 +5,12 @@ import GetMeteorsData from '@/components/getMeteorsData'
 import Header from '@/components/Header'
 import Basket from '@/components/Basket'
 
-interface asterodGen {
-  id: number;
-  date: string;
-  units: number[];
-  name: string;
-  dangerous: boolean;
-  size: number;
-}
+import { asterodData } from '@/utils/types'
 
 export default function Home(){
 
   const [dataM, setDataM] = useState();
-  const [meteors, setMeteors] = useState<asterodGen[]>([]);
+  const [meteors, setMeteors] = useState<asterodData[]>([]);
 
   const handleData = (data: any) => {
     setDataM(data)

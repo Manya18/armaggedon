@@ -10,7 +10,7 @@ const Meteor = (props) => {
     else sizeImg = 90
 
     return (
-        <>{props.meteor.id ? < div className={styles.body} key={props.meteor.id}>
+        < div className={styles.body} key={props.meteor.id}>
             <h1 className={styles.date} >{props.meteor.date}</h1>
             <div className={styles.data}>
                 <div className={styles.column}>                    
@@ -34,14 +34,12 @@ const Meteor = (props) => {
                 />
                 <div className={styles.column}>
                     <Link href={{pathname:`/SingleMeteor/${props.meteor.id}`, query:props.id}}><h3 className={styles.name}>{props.meteor.name}</h3></Link>
-                    <h4 className={styles.width}>Ø {props.meteor.sizeImg} м</h4> 
+                    <h4 className={styles.width}>Ø {props.meteor.size} м</h4> 
                 </div>
                
             </div> 
-        </div>:<></>}
-        </>
+        </div>
     )
 }
-
 
 export default Meteor;

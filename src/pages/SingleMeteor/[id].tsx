@@ -4,42 +4,33 @@ import Image from 'next/image'
 import styles from '@/styles/MeteorPage.module.css'
 import Header from '@/components/Header';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react';
+import { dataNameDia, dataApproach } from '@/utils/types';
 
 const SingleMeteor = () => {
     const router = useRouter()
     console.log(router.query);
 
-    const [meteorData, setMeteorData] = useState({
-        "id":0,
-        "name": '',
-        "diameter":0
-    });
-    const [approachArray, setApproachArray] = useState([{
-        "date":'',
-        'distance': '',
-        'velocity': '',
-        'orbita': ''
-    }])
+    const [meteorData, setMeteorData] = useState<dataNameDia>({id:0, name: '', diameter: 0});
+    const [approachArray, setApproachArray] = useState<dataApproach[]>([]);
 
     async function getData(){
     fetch(`https://api.nasa.gov/neo/rest/v1/neo/${router.query.id}?api_key=w72K7LgVIHRXzd4b8VfGskoRL1FjgdQPPlhA5vGg`)
         .then((response) => response.json())
         .then((data) => {
-            
-            console.log("data", data)
-            let meteor = {
-                "id":data.id,
-                "name": data.name,
-                "diameter":Math.round(data.estimated_diameter.meters.estimated_diameter_min),
+            let meteor: dataNameDia = {
+                id:data.id,
+                name: data.name,
+                diameter:Math.round(data.estimated_diameter.meters.estimated_diameter_min),
             } 
             setMeteorData(meteor);
+
             let app = []
             for(let tmp of data.close_approach_data) {
-                let approach = {
-                    "date": tmp.close_approach_date_full,
-                    'distance': Math.round(tmp.miss_distance.kilometers).toLocaleString('ru'),
-                    'velocity': Math.round(tmp.relative_velocity.kilometers_per_hour).toLocaleString('ru'),
-                    'orbita': tmp.orbiting_body,
+                let approach: dataApproach = {
+                    date: tmp.close_approach_date_full,
+                    distance: Math.round(tmp.miss_distance.kilometers).toLocaleString('ru'),
+                    velocity: Math.round(tmp.relative_velocity.kilometers_per_hour).toLocaleString('ru'),
+                    orbita: tmp.orbiting_body,
                 }
                 app.push(approach)
             }
