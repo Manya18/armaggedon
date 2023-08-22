@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/Meteor.module.css";
 import Link from "next/link";
+import React from 'react';
 
 const Meteor = (props) => {
   let sizeImg = 0;
