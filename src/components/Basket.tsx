@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Basket = ({ data }) => {
   let arr: string[] = [];
-  console.log(data);
+  // console.log(data);
   for (let dat of data) {
     arr.push(JSON.stringify(dat));
   }

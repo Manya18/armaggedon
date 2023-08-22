@@ -15,7 +15,6 @@ import { dataNameDia, dataApproach } from "@/utils/types";
 
 const SingleMeteor = () => {
   const router = useRouter();
-  console.log(router.query);
 
   const [meteorData, setMeteorData] = useState<dataNameDia>({
     id: 0,
@@ -34,7 +33,9 @@ const SingleMeteor = () => {
           id: data.id,
           name: data.name,
           diameter: Math.round(
-            data.estimated_diameter.meters.estimated_diameter_min
+            (data.estimated_diameter.meters.estimated_diameter_max -
+              data.estimated_diameter.meters.estimated_diameter_min) /
+              2
           ),
         };
         setMeteorData(meteor);
@@ -54,8 +55,6 @@ const SingleMeteor = () => {
           app.push(approach);
         }
         setApproachArray(app);
-        console.log(approachArray);
-        console.log(meteorData);
       });
   }
 
@@ -79,7 +78,7 @@ const SingleMeteor = () => {
           />
           <div className={styles.head}>
             <h1>Метеорит {meteorData.name}</h1>
-            <h2>Ø {meteorData.diameter}</h2>
+            <h2>Ø {meteorData.diameter} м</h2>
           </div>
         </div>
       </div>

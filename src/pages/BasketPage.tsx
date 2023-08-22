@@ -8,13 +8,9 @@ const BasketPage = () => {
     let arrQuery = [];
     const router = useRouter()
     const query = Object.values(router.query);
-    console.log(query)
-    console.log(query.length)
     for(let i=0; i< query.length; i++) {
         arrQuery.push(JSON.parse(query[i]))
     }
-
-    console.log(arrQuery)
 
     return (
         <div className={styles.body}>
