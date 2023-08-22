@@ -1,66 +1,67 @@
 .title {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    max-width: 30vw;
-    text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  max-width: 30vw;
+  text-align: left;
 }
 
-.param1, .param2 {
-    font-size: medium;
-    background-color: black;
-    border:  none;
-    font-weight: normal;
-    text-decoration: underline;
+.param1,
+.param2 {
+  font-size: medium;
+  background-color: black;
+  border: none;
+  font-weight: normal;
+  text-decoration: underline;
 }
 
-.param1:focus, .param2:focus {
-    font-weight: bold;
-    text-decoration: none;
-
+.param1:focus,
+.param2:focus {
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .type {
-    margin-left: 1vw;
-    margin-top: auto;
-    margin-bottom: auto;
-    color: yellow;
+  margin-left: 1vw;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: yellow;
 }
 
-.buttonOff, .buttonOn {
-    width: 100px;
-    height: 30px;
-    background-color: #471d00;
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: bold;
+.buttonOff,
+.buttonOn {
+  width: 100px;
+  height: 30px;
+  background-color: #471d00;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .buttonOff {
-    color: #e05a00
+  color: #e05a00;
 }
 .buttonOff:hover {
-    cursor: pointer;
-    background-color: #e05a00;
-    color: white
+  cursor: pointer;
+  background-color: #e05a00;
+  color: white;
 }
 
 .buttonOn {
-    color: gray
+  color: gray;
 }
 
 @media screen and (max-width: 480px) {
-    .title {
-        font-size: x-large;
-    }
-    .button {
-        width: 70px;
-        height: 25px;
-        font-size: 12px;
-    }
-
+  .title {
+    font-size: x-large;
+  }
+  .button {
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
+  }
 }

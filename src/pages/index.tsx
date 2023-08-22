@@ -1,21 +1,20 @@
-import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import { useState } from 'react'
-import GetMeteorsData from '@/components/getMeteorsData'
-import Header from '@/components/Header'
-import Basket from '@/components/Basket'
+import Head from "next/head";
+import styles from "@/styles/Home.module.css";
+import { useState } from "react";
+import GetMeteorsData from "@/components/getMeteorsData";
+import Header from "@/components/Header";
+import Basket from "@/components/Basket";
 
-import { asterodData } from '@/utils/types'
+import { asterodData } from "@/utils/types";
 
-export default function Home(){
-
+export default function Home() {
   const [dataM, setDataM] = useState();
   const [meteors, setMeteors] = useState<asterodData[]>([]);
 
   const handleData = (data: any) => {
-    setDataM(data)
-    meteors.push(data)
-    setMeteors(meteors)
+    setDataM(data);
+    meteors.push(data);
+    setMeteors(meteors);
   };
 
   return (
@@ -27,14 +26,14 @@ export default function Home(){
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Header/>
+        <Header />
       </div>
       <div className={styles.meteors}>
-        <GetMeteorsData onData={handleData}/>
+        <GetMeteorsData onData={handleData} />
       </div>
       <div className={styles.basket}>
-        <Basket data ={meteors}/>
+        <Basket data={meteors} />
       </div>
     </div>
-  )
+  );
 }

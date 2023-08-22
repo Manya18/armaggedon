@@ -1,60 +1,62 @@
 .body {
-    background-color: black;
-    min-width: 90vw;
-    min-height: 100vh;
+  background-color: black;
+  min-width: 90vw;
+  min-height: 100vh;
 }
 
 .flex {
-    display: flex;
-    padding: 20px;
+  display: flex;
+  padding: 20px;
 }
-    
+
 .approach {
-    font-size: large;
-    margin: 5px;
-    display: flex;
-    text-align: center;
+  font-size: large;
+  margin: 5px;
+  display: flex;
+  text-align: center;
 }
- 
+
 @keyframes moving {
-    100% {transform: rotate(-360deg);}
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 .image {
-    margin-right: 20px;
-    animation: moving 20s infinite linear;
-    margin-left: 60px;
+  margin-right: 20px;
+  animation: moving 20s infinite linear;
+  margin-left: 60px;
 }
 
 .head {
-    margin-top: auto;
-    margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .data {
-    text-align: center;
+  text-align: center;
 }
-  
+
 .li {
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color:#242424;
-    border-radius: 20px;
-    list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #242424;
+  border-radius: 20px;
+  list-style-type: none;
 }
 
 @media screen and (max-width: 480px) {
-    .image {
-      height: 20vw;
-    }
-    .headerVisib {
-        display: none;
-    }
-    .body {
-        min-width: 120vw;
-    }
+  .image {
+    height: 20vw;
   }
+  .headerVisib {
+    display: none;
+  }
+  .body {
+    min-width: 120vw;
+  }
+}

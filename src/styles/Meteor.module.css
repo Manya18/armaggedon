@@ -1,59 +1,58 @@
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .body {
-    margin-top: 3vh;
-
+  margin-top: 3vh;
 }
 
 .date {
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .data {
-    display: flex;
-    justify-content: space-between;
-    max-width:30vw;
-    min-width:20vw;
-
+  display: flex;
+  justify-content: space-between;
+  max-width: 30vw;
+  min-width: 20vw;
 }
 
 .column {
-    text-align: left;
-    min-width: 10vw;
-    max-width: 15vw;
+  text-align: left;
+  min-width: 10vw;
+  max-width: 15vw;
 }
 
 .name {
-    text-decoration: underline;
-    margin-bottom: 10px;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 .meteor {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 480px) {
-    .date {
-        font-size:x-large
-    }
-    .data {
-        display: flex;
-        justify-content: space-between;
-        max-width:40vw;
-        min-width:30vw;
-    }
-    .units, .width {
-        font-size:smaller
-    }
-    .column {
-        min-width: 25vw;
-        max-width: 30vw;
-    }
-    .name {
-        font-size:small;
-    }
+  .date {
+    font-size: x-large;
   }
+  .data {
+    display: flex;
+    justify-content: space-between;
+    max-width: 40vw;
+    min-width: 30vw;
+  }
+  .units,
+  .width {
+    font-size: smaller;
+  }
+  .column {
+    min-width: 25vw;
+    max-width: 30vw;
+  }
+  .name {
+    font-size: small;
+  }
+}

@@ -1,33 +1,33 @@
 .body {
-    background-color: black;
-    min-height: 100vh;
-    padding-bottom: 30px;
+  background-color: black;
+  min-height: 100vh;
+  padding-bottom: 30px;
 }
 
 .type {
-    margin-top: -30px;
-    color: yellow;
+  margin-top: -30px;
+  color: yellow;
 }
 
 .h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .list {
-    margin-left: 37vw;
+  margin-left: 37vw;
 }
 
 .footer {
-    background-color: black;
-    font-size: larger;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  background-color: black;
+  font-size: larger;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @media screen and (max-width: 480px) {
-    .list {
-        margin-left: 17vw;
-    }
+  .list {
+    margin-left: 17vw;
+  }
 }
